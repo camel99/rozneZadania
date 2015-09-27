@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <form oninput="display()">
+        <input type="text" id="phrase">
+    </form>
+    <button onclick="display()">Dawaj wynika</button>
+
+    <div id="palindrom"></div>
+</head>
+<body>
+<script>
+    function palindrom(newWord) {
+        var split = newWord.split(" ");
+        var ileLiter = [];
+        for (var i = 0; i < split.length; i++) {
+            ileLiter[i] = split[i].length;
+        }
+        console.log(ileLiter);
+        var x = newWord.split("").reverse().join("");
+        var y = (x.split(" ").join(""));
+        console.log("igrek" + typeof y);
+        var wynik = [];
+        var ile = '';
+        for (var j = 0; j < ileLiter.length; j++) {
+            ile = ileLiter[j];
+            console.log('ile' + ile);
+            wynik[j] = y.substring(j, ile);
+            console.log(wynik[j]);
+        }
+        console.log('wynik to' + wynik);
+        return x;
+    }
+    function display() {
+        var what = document.getElementById('phrase').value;
+        var newPalidrom = palindrom(what);
+        console.log(typeof what);
+        if (typeof what === 'string') {
+            if (what === newPalidrom) {
+//                alert('Wow I\'m palindrom');
+            } else {
+//                alert('Unfortunately I\'m not a palindrom');
+            }
+        } else {
+            alert('doopa');
+        }
+        document.getElementById('palindrom').innerHTML = 'Palindrom ' + palindrom(what);
+    }
+</script>
+</body>
+</html>

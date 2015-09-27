@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<button onclick="createLi()">Dawaj wynika</button>
+<ul id="myUl">
+
+</ul>
+<script>
+//    var li = '';
+    function createLi(){
+        for(var i = 0; i < 100; i++) {
+            var li = document.createElement("LI");
+            if(i % 3 == 0){
+                li.style.background = "brown";
+                li.onclick = arekDuparek;
+            } else {
+                li.style.background = "green";
+            }
+            var message = document.createTextNode(i);
+            li.appendChild(message);
+//            return li;
+            document.getElementById("myUl").appendChild(li);
+        }
+        document.getElementById("myUl").appendChild(li);
+    }
+    function arekDuparek () {
+        alert('arek duparek');
+    }
+
+</script>
+</body>
+
+</html>
