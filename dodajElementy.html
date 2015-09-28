@@ -1,0 +1,50 @@
+<!--Dodaj 100 elementow do listy. Co drugie element ma miec tlo czerwone , a pozostale niebieskie.-->
+<!--Co 3 element ma byc klikalny i wyswietlac alert z komuniaktem "dzien dobry"-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    li:nth-child(even){
+        background: grey;
+    }
+    li:nth-child(odd){
+        background: green;
+    }
+
+</style>
+
+<body onload="createLi()">
+<button onclick="createLi()">Dawaj wynika</button>
+<ul id="myUl">
+
+</ul>
+<script>
+    function createLi(){
+    var myList = document.getElementById('myUl');
+    var html = '';
+    for(var i = 0; i < 100; i++) {
+    html += '<li data-id="' + i +'">' + i + '</li>';
+    }
+    myList.innerHTML = html;
+
+    myList.onclick = function (e) {
+    var id = e.target.dataset.id;
+
+    if (e.target.tagName.toLowerCase() === 'li' && (id % 3 === 0)) {
+    alert('Dzień dobry');
+    }
+
+    };
+
+    }
+    function arekDuparek () {
+    alert('Arek duparek');
+    }
+
+</script>
+</body>
+</html>
