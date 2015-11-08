@@ -1,0 +1,30 @@
+<!--Napisz funkcje, która wywolana bedzie na zmiennej i doda wszystkie argumenty funkcji oraz wartosc tej zmiennej:-->
+<!--var x =5;-->
+<!--x.suma(1,2,3,4) = 15;-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var x = 4;
+    var y = [1, 2, 3, 4];
+    Number.prototype.sumArguments = function () {
+        var suma = this;
+        for (var i = 0; i < arguments.length; i++) {
+            suma += arguments[i];
+        }
+        return suma;
+    };
+    console.log(x.sumArguments(22, 30, 30, 40));
+
+    [1,2,3,4].reduce(function (previousValue, currentValue, index, array) {
+                return console.log(previousValue + currentValue);
+            }
+    )
+</script>
+</body>
+</html>
